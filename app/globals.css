@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+
+  --primary: 142.1 76.2% 36.3%;
+  --primary-foreground: 355.7 100% 97.3%;
+
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 142.1 76.2% 36.3%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 142.1 76.2% 36.3%;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 142.1 70% 45%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+
+  --accent: 142.1 70% 45%;
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 142.1 76.2% 36.3%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for the app */
+.csv-gradient-bg {
+  background: linear-gradient(135deg, rgba(52, 183, 111, 0.15) 0%, rgba(52, 183, 111, 0.05) 100%);
+}
+
+.csv-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.csv-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(52, 183, 111, 0.1), 0 8px 10px -6px rgba(52, 183, 111, 0.05);
+}
+
+.csv-stat-card {
+  border-left: 3px solid #34b76f;
+}
+
+.csv-formula-editor {
+  font-family: "Menlo", "Monaco", "Courier New", monospace;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #1e293b;
+}
+
+.csv-formula-editor:focus {
+  outline: 2px solid rgba(52, 183, 111, 0.5);
+  border-color: #34b76f;
+}
+
+.csv-formula-highlight {
+  color: #34b76f;
+  font-weight: 500;
+}
+
+.csv-formula-function {
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.csv-formula-operator {
+  color: #f59e0b;
+}
+
+.csv-formula-reference {
+  color: #8b5cf6;
+}
+
+.csv-formula-error {
+  color: #ef4444;
+  text-decoration: wavy underline #ef4444;
+}
+
+/* Animated gradient background */
+.animated-gradient {
+  background: linear-gradient(-45deg, #34b76f, #2ea563, #4ade80, #22d3ee);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating animation */
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Pulse animation */
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c3ecd3;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #34b76f;
+}
+
+/* Add specific styles to ensure charts are visible */
+.recharts-wrapper {
+  width: 100% !important;
+}
+
+.recharts-surface {
+  overflow: visible;
+}
+
+/* Custom styles for charts */
+.recharts-default-tooltip {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 0.375rem !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  padding: 8px 12px !important;
+}
+
+.recharts-tooltip-label {
+  color: #1e293b !important;
+  font-weight: 500 !important;
+  margin-bottom: 4px !important;
+}
+
+.recharts-tooltip-item {
+  color: #64748b !important;
+  padding: 2px 0 !important;
+}
+
+.recharts-cartesian-axis-tick-value {
+  font-size: 12px !important;
+  fill: #64748b !important;
+}
+
+.recharts-legend-item-text {
+  color: #1e293b !important;
+}
+
+.recharts-pie-label-text {
+  font-size: 12px !important;
+  fill: #1e293b !important;
+}
+
+/* Ensure scatter plot points are visible */
+.recharts-scatter-symbol {
+  fill-opacity: 0.8 !important;
+}
+
+/* Ensure line charts are visible */
+.recharts-line-curve {
+  stroke-width: 2px !important;
+}
+
+.recharts-line-dot {
+  stroke-width: 1px !important;
+  stroke: white !important;
+}
+
+/* Ensure bar charts are visible */
+.recharts-bar-rectangle {
+  opacity: 0.9 !important;
+}
+
+/* Custom card styles */
+.csv-theme-card {
+  @apply bg-gradient-to-br from-white to-csv-green-50 border-csv-green-200 shadow-sm;
+}
+
+.csv-theme-header {
+  @apply bg-gradient-to-r from-csv-green-50 to-white border-b border-csv-green-200;
+}
+
+.csv-theme-title {
+  @apply text-csv-green-800 flex items-center;
+}
+
+.csv-theme-icon {
+  @apply text-csv-green-500 mr-2 h-5 w-5;
+}
+
+.csv-theme-button {
+  @apply bg-csv-gradient hover:bg-csv-gradient-hover text-white;
+}
+
+.csv-theme-badge {
+  @apply bg-csv-green-50 text-csv-green-700 border-csv-green-200;
+}
+
